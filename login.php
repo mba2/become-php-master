@@ -5,7 +5,9 @@
 
 		echo $username;
 		echo $password;
+
 	}
+	$connection = mysqli_connect("localhost","root","m2c1a4a2","sintaxes");
 
 ?>
 
