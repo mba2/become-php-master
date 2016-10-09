@@ -1,16 +1,6 @@
 <?php
-	if(isset($_POST['submit'])) {
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-
 		require_once "db.php";
-		$query = "INSERT INTO `user` (userName,userPass) VALUES
-							('{$username}','{$password}');";
-		echo $query;
-		// exit();
-		$result = mysqli_query($connection,$query) OR die(mysqli_error($connection));
-	}
-
+    require_once "functions.php";
 ?>
 
 
@@ -19,7 +9,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<title>LOGIN PAGE</title>
+		<title>LOGIN PAGE - UPDATE</title>
 
 		<link rel="stylesheet" href="css/bootstrap.min.css"	>
 
@@ -27,7 +17,7 @@
 		<div id="" class="container-fluid">
 			<div class="row">
 				<div class="col-lg-6">
-						<form id="" class="" method="post" action="login.php">
+						<form id="" class="" method="post" action="login-update.php">
 							<div class="form-group">
 								<label id="" for="user-name">Username</label>
 								<input type="text" id="user-name" class="form-control" name="username">
@@ -38,9 +28,15 @@
 								<input type="password" id"user-password" class="form-control" name="password">
 							</div>
 
-									<div class="form-group">
-										<input type="submit" id="" name="submit" class="btn btn-success" value="Submit">
-									</div>
+              <div class="form-group">
+                <select id="" class="" name="id">
+                    <?php showAllData()?>
+                </select>
+              </div>
+
+							<div class="form-group">
+								<input type="submit" id="" name="update" class="btn btn-success" value="Update">
+				       </div>
 						</form>
 				</div>
 			</div>
